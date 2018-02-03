@@ -18,10 +18,20 @@ public class UserDaoImpl implements UserService {
 	@Autowired
 	JdbcTemplate jdbcTemplate;*/
 
-	public void register(User user) {
+	public String register(User user) {
 		/*String sql = "insert into users values(?,?,?,?,?,?,?)";
 		jdbcTemplate.update(sql, new Object[] { user.getUsername(), user.getPassword(), user.getFirstname(),
 				user.getLastname(), user.getEmail(), user.getAddress(), user.getPhone() });*/
+		if(user.getFirstname() == null){
+			return "First name mandatory";
+		}else if(user.getLastname() == null){
+			return ("Last name mandatory");
+		}else if(user.getUsername() == null){
+			return ("user name mandatory");
+		}else if(user.getPassword() == null){
+			return "password mandatory";
+		}
+		return "success";
 	}
 
 	public User validateUser(Login login) {
@@ -29,17 +39,20 @@ public class UserDaoImpl implements UserService {
 				+ login.getPassword() + "'";
 		List<User> users = jdbcTemplate.query(sql, new UserMapper());
 		return users.size() > 0 ? users.get(0) : null;*/
+		if(!login.getUsername().equals("ch310445")){
+			return null;
+		}
 		return mapUser(login);
 	}
 	
 	private User mapUser(Login login){
 		User user = null;
-		if("chida".equals(login.getUsername())){
+		if("ch310445".equals(login.getUsername())){
 			user = new User();
-			user.setUsername("Chida");
-			user.setPassword("test");
-			user.setFirstname("Puttaswamy");
-			user.setLastname("");
+			user.setUsername("ch310445");
+			user.setPassword("chida");
+			user.setFirstname("Chida");
+			user.setLastname("Puttaswamy");
 			user.setEmail("chida@wipro.com");
 			user.setAddress("Tennesse");
 			user.setPhone(1234567890);
