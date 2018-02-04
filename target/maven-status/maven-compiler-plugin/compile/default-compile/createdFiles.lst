@@ -1,0 +1,6 @@
+com\chida\devOps0\dao\UserDaoImpl.class
+com\chida\devOps0\controller\LoginController.class
+com\chida\devOps0\service\UserService.class
+com\chida\devOps0\controller\RegistrationController.class
+com\chida\devOps0\model\User.class
+com\chida\devOps0\model\Login.class
