@@ -128,7 +128,7 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.18.1</version>
 				<configuration>
-					<!-- <excludedGroups>com.chida.devOps0.FunctionalTest</excludedGroups> -->
+					<excludedGroups>com.chida.devOps0.FunctionalTest</excludedGroups>
 				</configuration>
 			</plugin>
 
